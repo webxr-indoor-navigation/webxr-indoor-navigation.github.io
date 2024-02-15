@@ -53,7 +53,7 @@
 				renderer.xr.enabled = true;
 				container.appendChild( renderer.domElement );
 
-				//
+				// link button to the renderer (event_holder: start our session)
 
 				document.body.appendChild( ARButton.createButton( renderer ) );
 
@@ -68,6 +68,10 @@
 					mesh.position.set( 0, 0, - 0.3 ).applyMatrix4( controller.matrixWorld );
 					mesh.quaternion.setFromRotationMatrix( controller.matrixWorld );
 					scene.add( mesh );
+
+					// Display controller and mesh coordinates
+					document.getElementById('info').innerHTML = 'Controller World Position: ' + JSON.stringify(controller.position.toArray()) + '<br> Mesh World Position: ' + JSON.stringify(mesh.position.toArray());
+
 
 				}
 
